@@ -5,11 +5,11 @@ import (
 	"log"
 	"runtime"
 
-	stan "github.com/nats-io/go-nats-streaming"
+	stan "github.com/nats-io/stan.go"
 
-	"github.com/shijuvar/go-distributed-sys/pb"
-	"github.com/shijuvar/go-distributed-sys/store"
-	"github.com/shijuvar/go-distributed-sys/natsutil"
+	"github.com/mingsterism/go-distributed-sys/pb"
+	"github.com/mingsterism/go-distributed-sys/store"
+	"github.com/mingsterism/go-distributed-sys/natsutil"
 )
 
 const (

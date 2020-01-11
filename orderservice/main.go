@@ -3,22 +3,23 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"time"
 
 	"github.com/gorilla/mux"
 	"github.com/pkg/errors"
-	"github.com/satori/go.uuid"
+	uuid "github.com/satori/go.uuid"
 	"google.golang.org/grpc"
 
-	"github.com/shijuvar/go-distributed-sys/pb"
+	"github.com/mingsterism/go-distributed-sys/pb"
 )
 
 const (
 	event     = "order-created"
 	aggregate = "order"
-	grpcUri   = "localhost:50051"
+	grpcURI   = "localhost:50051"
 )
 
 func main() {
@@ -43,6 +44,7 @@ func createOrder(w http.ResponseWriter, r *http.Request) {
 	err := json.NewDecoder(r.Body).Decode(&order)
 	if err != nil {
 		http.Error(w, "Invalid Order Data", 500)
+		fmt.Println(err)
 		return
 	}
 	aggregateID := uuid.NewV4().String()
@@ -53,7 +55,7 @@ func createOrder(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Print(err)
 		http.Error(w, "Failed to create Order", 500)
-		return
+		// return
 	}
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
@@ -64,7 +66,7 @@ func createOrder(w http.ResponseWriter, r *http.Request) {
 // createOrderRPC calls the CreateEvent RPC
 func createOrderRPC(order pb.OrderCreateCommand) error {
 
-	conn, err := grpc.Dial(grpcUri, grpc.WithInsecure())
+	conn, err := grpc.Dial(grpcURI, grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("Unable to connect: %v", err)
 	}

@@ -1,12 +1,11 @@
 package main
 
-
 import (
 	"encoding/json"
 	"log"
 	"runtime"
 
-	"github.com/nats-io/go-nats"
+	"github.com/nats-io/nats.go"
 )
 
 func main() {
@@ -16,10 +15,10 @@ func main() {
 	}
 	payload := struct {
 		OrderID string
-		Status      string
+		Status  string
 	}{
 		OrderID: "1234-5678-90",
-		Status:      "Placed",
+		Status:  "Placed",
 	}
 	msg, err := json.Marshal(payload)
 	if err != nil {

@@ -7,13 +7,13 @@ import (
 	"time"
 	"context"
 
-	stan "github.com/nats-io/go-nats-streaming"
+	stan "github.com/nats-io/stan.go"
 	"github.com/satori/go.uuid"
 	"google.golang.org/grpc"
 	"github.com/pkg/errors"
 
-	"github.com/shijuvar/go-distributed-sys/pb"
-	"github.com/shijuvar/go-distributed-sys/natsutil"
+	"github.com/mingsterism/go-distributed-sys/pb"
+	"github.com/mingsterism/go-distributed-sys/natsutil"
 )
 
 const (

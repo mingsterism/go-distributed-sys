@@ -3,7 +3,7 @@ package store
 import (
 	"github.com/pkg/errors"
 
-	"github.com/shijuvar/go-distributed-sys/pb"
+	"github.com/mingsterism/go-distributed-sys/pb"
 )
 
 type EventStore struct{}

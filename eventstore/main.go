@@ -6,12 +6,12 @@ import (
 	"log"
 	"net"
 
-	"github.com/nats-io/go-nats-streaming"
+	"github.com/nats-io/stan.go"
 	"google.golang.org/grpc"
 
-	"github.com/shijuvar/go-distributed-sys/pb"
-	"github.com/shijuvar/go-distributed-sys/store"
-	"github.com/shijuvar/go-distributed-sys/natsutil"
+	"github.com/mingsterism/go-distributed-sys/natsutil"
+	"github.com/mingsterism/go-distributed-sys/pb"
+	"github.com/mingsterism/go-distributed-sys/store"
 )
 
 const (
@@ -20,7 +20,7 @@ const (
 	clientID  = "event-store-api"
 )
 
-type server struct{
+type server struct {
 	*natsutil.StreamingComponent
 }
 
@@ -35,7 +35,7 @@ func (s *server) CreateEvent(ctx context.Context, in *pb.Event) (*pb.Response, e
 		return nil, err
 	}
 	// Publish event on NATS Streaming Server
-	go publishEvent(s.StreamingComponent, in, )
+	go publishEvent(s.StreamingComponent, in)
 	return &pb.Response{IsSuccess: true}, nil
 }
 
@@ -74,6 +74,6 @@ func main() {
 	}
 	// Creates a new gRPC server
 	s := grpc.NewServer()
-	pb.RegisterEventStoreServer(s, &server { StreamingComponent: comp})
+	pb.RegisterEventStoreServer(s, &server{StreamingComponent: comp})
 	s.Serve(lis)
 }

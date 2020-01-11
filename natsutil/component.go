@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/nats-io/go-nats-streaming"
 	"github.com/nats-io/nuid"
+	"github.com/nats-io/stan.go"
 )
 
 // StreamingComponent is contains reusable logic related to handling
@@ -34,7 +34,7 @@ func NewStreamingComponent(kind string) *StreamingComponent {
 }
 
 // ConnectToNATSStreaming connects to NATS Streaming
-func (c *StreamingComponent) ConnectToNATSStreaming( clusterID string, options ...stan.Option) error {
+func (c *StreamingComponent) ConnectToNATSStreaming(clusterID string, options ...stan.Option) error {
 	c.cmu.Lock()
 	defer c.cmu.Unlock()
 

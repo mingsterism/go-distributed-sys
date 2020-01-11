@@ -1,10 +1,10 @@
 package main
 
 import (
-"log"
-"runtime"
+	"log"
+	"runtime"
 
-"github.com/nats-io/go-nats"
+	"github.com/nats-io/nats.go"
 )
 
 func main() {
