@@ -1,0 +1,1 @@
+2020/01/12 16:40:42 Subscribed message from clientID - order-query-store1: {OrderId:9a69d4f6-8cf2-4dad-8e53-ca9f50f973b9 CustomerId: Status:Pending CreatedOn:1578818442 RestaurantId: Amount:0 OrderItems:[] XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}

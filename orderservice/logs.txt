@@ -1,0 +1,15 @@
+2020/01/12 16:38:57 HTTP Sever listening...
+INFO: 2020/01/12 16:39:22 parsed scheme: ""
+INFO: 2020/01/12 16:39:22 scheme "" not registered, fallback to default scheme
+INFO: 2020/01/12 16:39:22 ccResolverWrapper: sending update to cc: {[{localhost:50051  <nil> 0 <nil>}] <nil> <nil>}
+INFO: 2020/01/12 16:39:22 ClientConn switching balancer to "pick_first"
+INFO: 2020/01/12 16:39:22 pickfirstBalancer: HandleSubConnStateChange: 0xc00015c1e0, {CONNECTING <nil>}
+INFO: 2020/01/12 16:39:22 pickfirstBalancer: HandleSubConnStateChange: 0xc00015c1e0, {READY <nil>}
+INFO: 2020/01/12 16:39:22 transport: loopyWriter.run returning. connection error: desc = "transport is closing"
+INFO: 2020/01/12 16:40:42 parsed scheme: ""
+INFO: 2020/01/12 16:40:42 scheme "" not registered, fallback to default scheme
+INFO: 2020/01/12 16:40:42 ccResolverWrapper: sending update to cc: {[{localhost:50051  <nil> 0 <nil>}] <nil> <nil>}
+INFO: 2020/01/12 16:40:42 ClientConn switching balancer to "pick_first"
+INFO: 2020/01/12 16:40:42 pickfirstBalancer: HandleSubConnStateChange: 0xc00015c380, {CONNECTING <nil>}
+INFO: 2020/01/12 16:40:42 pickfirstBalancer: HandleSubConnStateChange: 0xc00015c380, {READY <nil>}
+INFO: 2020/01/12 16:40:42 transport: loopyWriter.run returning. connection error: desc = "transport is closing"

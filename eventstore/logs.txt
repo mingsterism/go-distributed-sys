@@ -1,0 +1,13 @@
+INFO: 2020/01/12 16:39:22 transport: loopyWriter.run returning. connection error: desc = "transport is closing"
+2020/01/12 16:39:22 Published message on channel: order-created
+WARNING: 2020/01/12 16:39:22 transport: http2Server.HandleStreams failed to read frame: read tcp [::1]:50051->[::1]:48510: read: connection reset by peer
+INFO: 2020/01/12 16:39:22 transport: loopyWriter.run returning. connection error: desc = "transport is closing"
+2020/01/12 16:39:22 Published message on channel: order-payment-debited
+INFO: 2020/01/12 16:39:22 transport: loopyWriter.run returning. connection error: desc = "transport is closing"
+2020/01/12 16:39:22 Published message on channel: order-approved
+INFO: 2020/01/12 16:40:42 transport: loopyWriter.run returning. connection error: desc = "transport is closing"
+2020/01/12 16:40:42 Published message on channel: order-created
+INFO: 2020/01/12 16:40:42 transport: loopyWriter.run returning. connection error: desc = "transport is closing"
+2020/01/12 16:40:42 Published message on channel: order-payment-debited
+INFO: 2020/01/12 16:40:42 transport: loopyWriter.run returning. connection error: desc = "transport is closing"
+2020/01/12 16:40:42 Published message on channel: order-approved

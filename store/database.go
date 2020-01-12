@@ -12,7 +12,7 @@ var db *sql.DB
 func init() {
 	var err error
 	// Connect to the "ordersdb" database
-	db, err = sql.Open("postgres", "postgresql://shijuvar@localhost:26257/ordersdb?sslmode=disable")
+	db, err = sql.Open("postgres", "postgresql://root@localhost:26257/orders?sslmode=disable")
 	if err != nil {
 		log.Fatal("error connecting to the database: ", err)
 	}

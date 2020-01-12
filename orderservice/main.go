@@ -66,7 +66,7 @@ func createOrder(w http.ResponseWriter, r *http.Request) {
 // createOrderRPC calls the CreateEvent RPC
 func createOrderRPC(order pb.OrderCreateCommand) error {
 
-	conn, err := grpc.Dial(grpcURI, grpc.WithInsecure())
+	conn, err := grpc.Dial(grpcURI, grpc.WithInsecure(), grpc.WithBlock())
 	if err != nil {
 		log.Fatalf("Unable to connect: %v", err)
 	}

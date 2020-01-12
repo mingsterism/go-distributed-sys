@@ -7,13 +7,14 @@ import (
 	"time"
 
 	stan "github.com/nats-io/stan.go"
-	"github.com/satori/go.uuid"
+	uuid "github.com/satori/go.uuid"
 	"google.golang.org/grpc"
 
-	"github.com/mingsterism/go-distributed-sys/pb"
-	"github.com/mingsterism/go-distributed-sys/natsutil"
-	"github.com/mingsterism/go-distributed-sys/store"
 	"context"
+
+	"github.com/mingsterism/go-distributed-sys/natsutil"
+	"github.com/mingsterism/go-distributed-sys/pb"
+	"github.com/mingsterism/go-distributed-sys/store"
 	"github.com/pkg/errors"
 )
 
@@ -26,7 +27,7 @@ const (
 	event     = "order-approved"
 	aggregate = "order"
 
-	grpcUri   = "localhost:50051"
+	grpcURI = "localhost:50051"
 )
 
 func main() {
@@ -57,13 +58,13 @@ func main() {
 		}
 		// Handle the message
 		store := store.QueryStore{}
-		if err :=store.ChangeOrderStatus(paymentDebited.OrderId, "Approved"); err!=nil {
+		if err := store.ChangeOrderStatus(paymentDebited.OrderId, "Approved"); err != nil {
 			log.Println(err)
 			return
 		}
 		log.Printf("Order approved for Order ID: %s for Customer: %s\n", paymentDebited.OrderId, paymentDebited.CustomerId)
 		// Publish event to Event Store
-		if err:= createOrderApprovedCommand(paymentDebited.OrderId); err!=nil {
+		if err := createOrderApprovedCommand(paymentDebited.OrderId); err != nil {
 			log.Println("error occured while executing the OrderApproved command")
 		}
 
@@ -79,7 +80,7 @@ func main() {
 // OrderApproved command is created on Event Store
 func createOrderApprovedCommand(orderId string) error {
 
-	conn, err := grpc.Dial(grpcUri, grpc.WithInsecure())
+	conn, err := grpc.Dial(grpcURI, grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("Unable to connect: %v", err)
 	}
@@ -105,4 +106,3 @@ func createOrderApprovedCommand(orderId string) error {
 		return errors.Wrap(err, "error from RPC server")
 	}
 }
-

@@ -13,3 +13,9 @@
 
 # IDE metadata
 **.idea/**
+
+# output of cockroach db
+ordersdb*
+node*
+cockroach-data
+data
